@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body {
+				height: 3000px;
+			}
+			
+			#box {
+				width: 100px;
+				margin: 10px auto 0;
+				border: 1px solid black;
+			}
+			
+			ul,
+			h3 {
+				margin: 0;
+				padding: 0;
+				text-align: center;
+				cursor: pointer;
+			}
+			
+			ul li {
+				list-style: none;
+				height: 30px;
+				font: 20px/30px "微软雅黑";
+				background-color: orange;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box">
+			<h3>标题</h3>
+			<ul>
+				<li>新闻</li>
+				<li>娱乐</li>
+				<li>体育</li>
+				<li>头条</li>
+			</ul>
+		</div>
+	</body>
+	<script src="myTools.js"></script>
+	<script type="text/javascript">
+		var oH3 = $('h3')[0];
+		//var oUl = $('ul')[0];
+
+		var onOff = true;
+		oH3.onclick = function(e) {
+			//取消冒泡-------cancelBubble='true'为取消
+			e = e || event;
+			e.cancelBubble = true;
+			if(onOff) {
+				next(oH3).style.display = 'none';
+			} else {
+				next(oH3).style.display = 'block';
+			}
+			onOff = !onOff;
+		}
+
+		//点击document让列表闭合
+		document.onclick = function() {
+			next(oH3).style.display = 'none'; //因为有冒泡的存在，，使block显示看不到
+			onOff = false; //第一次点击时 没有改变onOff的值，一直为true，，点击h3两次才有效果，，所以写这句要使其保持一致
+		}
+	</script>
+
+</html>

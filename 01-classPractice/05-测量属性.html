@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body {
+				height: 3000px;
+			}
+			#box1 {
+				width: 300px;
+				height: 300px;
+				background-color: pink;
+				position: absolute;
+				padding:30px;
+				left: 50px;
+				top:30px;
+			}
+			#box2 {
+				width: 200px;
+				height: 150px;
+				background-color: lightblue;
+				
+				padding:10px;
+				
+			}
+			#box3 {
+				width: 170px;
+				height: 100px;
+				margin:30px;
+				color: #FFFFFF;
+				background-color: #000000;
+				overflow: auto;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="box1">
+			<div id="box2">
+				<div id="box3">
+					<p>121312312</p>
+					<p>121312312</p>
+					<p>121312312</p>
+					<p>121312312</p>
+					<p>121312312</p>
+					<p>121312312</p>
+					<p>121312312</p>
+					<p>121312312</p>
+					<p>121312312</p>				
+					<p>121312312</p>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		//--A.offsetParent  ----找到最近的设有定位的父级元素
+		var oBox3 =document.getElementById('box3');
+//		console.log(oBox3.offsetParent);
+//		oBox3.offsetParent.style.border='4px solid green';
+		
+		//--A.offsetLeft   距A的左侧偏移量
+		//--A.offsetTop    距A的上偏移量
+//		console.log(oBox3.offsetLeft);
+//		console.log(oBox3.offsetTop);
+
+
+		//文档的可视区域---document.documentElement.clientWidth
+		//文档的可视区域---document.documentElement.clientHeight
+//		console.log(document.documentElement.clientWidth);
+//		console.log(document.documentElement.clientHeight);
+
+
+		//offsetWidth---自定义宽度+padding左右+border左右
+		//offsetHeigth----自定义高度+padding上下+border左右
+		
+		
+		//clientWidth---自定义宽度+padding左右
+		//clientHeigth----自定义高度+padding上下
+		//clientLeft，，clientTop-----边框的距离
+		
+		
+		//scrollTop---需要兼容
+		var scrollT = document.documentElement.scrollTop||document.body.scrollTop
+		oBox3.onscroll=function(){
+			console.log(this.scrollTop);
+		}
+		oBox3.onclick=function(){
+			this.scrollTop=30; //没有单位
+		}
+	</script>
+</html>

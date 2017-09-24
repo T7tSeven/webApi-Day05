@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box {
+				width: 300px;
+				height: 400px;
+				border: 1px solid #000;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box"></div>
+		<input type="text" />
+		<input type="button" value="发送" />
+
+	</body>
+	<script src="myTools.js"></script>
+	<script type="text/javascript">
+		var oBox = $('#box');
+		var oInp = $('input');
+
+		oInp[1].onclick = function() {
+			oBox.innerHTML += '<p>' + oInp[0].value + '<a href="javascript:;">删除</a></p>';
+
+			var aP = $('p',oBox);
+			var aA = $('a',oBox);
+
+			for(var i = 0; i < aA.length; i++) {
+				aA[i].onclick = function() {
+					// parentnode-----父级节点
+					this.parentNode.parentNode.removeChild(this.parentNode);
+					console.log(aA);
+				}
+			}
+		}
+		
+	</script>
+
+</html>

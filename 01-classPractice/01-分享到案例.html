@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box {
+				width: 150px;
+				height: 300px;
+				background-color: #C0C0C0;
+				position: fixed;
+				top: 300px;
+				left: -150px;
+			}
+			
+			#oSpan {
+				width: 30px;
+				height: 60px;
+				line-height: 20px;
+				text-align: center;
+				background-color: #000000;
+				position: absolute;
+				top: 120px;
+				right: -30px;
+				color: white;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<span id="oSpan" class="oSpan">分享到</span>
+		</div>
+	</body>
+	<script src="myTools.js">
+		
+	</script>
+	<script>
+		//使用冒泡事件，给box设置，会从oSpan向上执行
+		var oBox = $('#box');
+		console.log(oBox);
+		var oSpan = $('.oSpan');
+		console.log(oSpan);
+		oBox.onmouseover = function(){
+			this.style.left = '0px';
+		}
+		oBox.onmouseout = function(){
+			this.style.left = '-150px';
+		}
+		
+	</script>
+</html>

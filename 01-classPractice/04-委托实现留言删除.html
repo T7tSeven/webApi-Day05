@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box {
+				width: 300px;
+				height: 400px;
+				border: 1px solid #000;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box"></div>
+		<input type="text" />
+		<input type="button" value="发送" />
+
+	</body>
+	<script src="myTools.js"></script>
+	<script type="text/javascript">
+		var oBox = $('#box');
+		var oInp = $('input');
+
+		oInp[1].onclick = function() {
+			oBox.innerHTML += '<p>' + oInp[0].value + '<a href="javascript:;">删除</a></p>';
+			//给父级obox添加事件，，通过属性target找寻原触发节点来判断
+			// 委托从上到下
+			
+			oBox.onclick = function(e) {
+				e = e || event;
+				
+
+				//兼容性
+				var tar = e.target || e.srcElement;
+				
+				if(tar.nodeName == 'A') { 
+					//nodeName是大写的
+					console.log(tar.nodeName);
+					this.removeChild(tar.parentNode);
+				}
+			}
+
+		}
+	</script>
+
+</html>
